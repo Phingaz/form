@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+
+    .container {
+        display: flex;
+        width: min(1000px, 95vw);
+        min-height: 80vh;
+        border-radius: var(--bd-radius);
+        background-color: var(--white);
+        padding: 20px;
+    }
+
+    @media (max-width:767px) {
+        display: block;
+
+        .container {
+            display: block;
+            width: 100%;
+            padding: 0;
+            height: 100%;
+            position: relative;
+            background-color: var(--bg);
+        }
+    }
+}

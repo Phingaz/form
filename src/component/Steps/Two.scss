@@ -1,0 +1,208 @@
+.two {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-right: 30px;
+
+    h1 {
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: var(--marine-blue);
+    }
+
+    p {
+        color: var(--cool-gray);
+        margin-bottom: 50px;
+        font-size: 0.85rem;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .input_wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin-bottom: 50px;
+
+                .card {
+                    min-height: 180px;
+                    transition: all 0.3s ease;
+
+                    &.active {
+                        background-color: var(--pinkish);
+                        border-radius: var(--bd-radius);
+                    }
+
+                    label {
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: space-between;
+                        padding: 20px;
+                        height: 100%;
+                        border-radius: var(--bd-radius);
+                        transition: all 0.3s ease;
+                        box-shadow: 0 0 5px 1px rgba(0, 0, 10, 0.209);
+
+                        &:hover {
+                            box-shadow: 0 0 5px 1px var(--marine-blue);
+                        }
+
+                        .icon {
+                            font-size: 3rem;
+                            padding: 10px;
+                            color: var(--white);
+                            border-radius: 50%;
+                            background-color: rgba(255, 166, 0, 0.763);
+
+                            &.two {
+                                background-color: var(--strawberry-red);
+                            }
+
+                            &.three {
+                                background-color: var(--purplish-blue);
+                            }
+                        }
+
+                        .info {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            h2 {
+                                font-size: 1.3rem;
+                                color: var(--marine-blue);
+                            }
+
+                            p {
+                                margin-bottom: 0;
+                            }
+
+                            .month {
+                                font-weight: bold;
+                                color: var(--marine-blue);
+                            }
+                        }
+                    }
+
+                    input[type='radio'] {
+                        width: 100%;
+                        height: 100%;
+                        -webkit-appearance: none;
+                        appearance: none;
+                    }
+                }
+            }
+
+            .toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                height: 50px;
+                border-radius: var(--bd-radius);
+                background-color: var(--pinkish);
+
+                h2 {
+                    color: var(--cool-gray);
+                    font-size: 1.3rem;
+
+                    &.active {
+                        color: var(--marine-blue);
+                    }
+                }
+
+
+                /* The switch - the box around the slider */
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 34px;
+                }
+
+                /* Hide default HTML checkbox */
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+                /* The slider */
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: var(--marine-blue);
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+
+                input:checked+.slider {
+                    background-color: var(--marine-blue);
+                }
+
+                input:focus+.slider {
+                    box-shadow: 0 0 1px var(--pinkish);
+                }
+
+                input:checked+.slider:before {
+                    -webkit-transform: translateX(26px);
+                    -ms-transform: translateX(26px);
+                    transform: translateX(26px);
+                }
+
+                /* Rounded sliders */
+                .slider.round {
+                    border-radius: 34px;
+                }
+
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+
+            & :first-child {
+                font-weight: bold;
+                background-color: transparent;
+                color: var(--cool-gray);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: var(--marine-blue);
+                }
+            }
+        }
+    }
+}
