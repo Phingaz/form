@@ -6,7 +6,7 @@ export const Final = () => {
     <main className="main">
       <Wrapper>
         <div className="final">
-          <CheckOutlinedIcon className="icon"/>
+          <CheckOutlinedIcon className="icon" />
           <h1>Thank you</h1>
           <p>
             Thanks for confirming your subscription! We hope you have fun using

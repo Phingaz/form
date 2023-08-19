@@ -5,12 +5,19 @@ import { useNavigate } from "react-router-dom";
 import GamepadIcon from "@mui/icons-material/Gamepad";
 import VideogameAssetIcon from "@mui/icons-material/VideogameAsset";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import { useDispatch, useSelector } from "react-redux";
+import { userPlan } from "../../redux/userSlice";
 
 export const Two = () => {
-  const [checked, setChecked] = useState("arcade");
-  const [toggle, setToggle] = useState(false);
+  const plan = useSelector((state) => state.userForm.plan);
+  const price = useSelector((state) => state.userForm.pricing);
+
+  const [checked, setChecked] = useState(plan.selectedPlan);
+  const [toggle, setToggle] = useState(plan.isYearly);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const handlePlan = (e) => {
     setChecked(e.target.id);
@@ -20,13 +27,19 @@ export const Two = () => {
     setToggle((p) => !p);
   };
 
+  const handleForm = (e) => {
+    e.preventDefault();
+    dispatch(userPlan({ checked, toggle }));
+    navigate("/addons");
+  };
+  
   return (
     <Wrapper>
       <div className="two">
         <h1>Select your plan</h1>
         <p>You have the option of monthly or yearly billing.</p>
 
-        <form className="form">
+        <form className="form" onSubmit={handleForm}>
           <div className="input_wrapper">
             <div className="cards">
               <div className={`card ${checked === "arcade" ? "active" : ""}`}>
@@ -34,7 +47,7 @@ export const Two = () => {
                   <GamepadIcon className="icon" />
                   <div className="info">
                     <h2>Arcade</h2>
-                    {!toggle ? <p>$9/mo</p> : <p>$90/yr</p>}
+                    {!toggle ? <p>${price.arcade.monthly}/mo</p> : <p>${price.arcade.yearly}/yr</p>}
                     {toggle && <p className="month">2 Months free</p>}
                   </div>
                 </label>
@@ -51,7 +64,7 @@ export const Two = () => {
                   <VideogameAssetIcon className="icon two" />
                   <div className="info">
                     <h2>Advanced</h2>
-                    {!toggle ? <p>$12/mo</p> : <p>$120/yr</p>}
+                    {!toggle ? <p>${price.advanced.monthly}/mo</p> : <p>${price.advanced.yearly}/yr</p>}
                     {toggle && <p className="month">2 Months free</p>}
                   </div>
                 </label>
@@ -68,7 +81,7 @@ export const Two = () => {
                   <SportsEsportsIcon className="icon three" />
                   <div className="info">
                     <h2>Pro</h2>
-                    {!toggle ? <p>$15/mo</p> : <p>$150/yr</p>}
+                    {!toggle ? <p>${price.pro.monthly}/mo</p> : <p>${price.pro.yearly}/yr</p>}
                     {toggle && <p className="month">2 Months free</p>}
                   </div>
                 </label>
@@ -82,11 +95,12 @@ export const Two = () => {
             </div>
 
             <div className="toggle">
-              <h2 className={!toggle ? "active" : ""}>Monthly</h2>
+              <h2 className={toggle ? "" : "active"}>Monthly</h2>
               <label className="switch">
                 <input
                   type="checkbox"
                   value={toggle}
+                  defaultChecked={toggle}
                   onClick={handlePlanToggle}
                 />
                 <span className="slider round"></span>
@@ -96,8 +110,10 @@ export const Two = () => {
           </div>
 
           <div className="btns">
-            <button onClick={() => navigate("/")}>Go back</button>
-            <button onClick={() => navigate("/addons")}>Next Step</button>
+            <button type="button" onClick={() => navigate("/")}>
+              Go back
+            </button>
+            <button>Next Step</button>
           </div>
         </form>
       </div>
