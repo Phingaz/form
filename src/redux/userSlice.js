@@ -45,7 +45,7 @@ const userSlice = createSlice({
       state.addOns.online = action.payload.one;
       state.addOns.storage = action.payload.two;
       state.addOns.profile = action.payload.three;
-      },
+    },
   },
 });
 

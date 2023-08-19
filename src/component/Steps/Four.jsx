@@ -7,8 +7,6 @@ export const Four = () => {
   const plan = useSelector((state) => state.userForm.plan);
   const price = useSelector((state) => state.userForm.pricing);
   const addons = useSelector((state) => state.userForm.addOns);
-  console.log(addons);
-  console.log(price);
 
   const navigate = useNavigate();
 
