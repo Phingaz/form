@@ -18,8 +18,11 @@
 
     p {
         color: var(--cool-gray);
-        margin-bottom: 50px;
         font-size: 0.85rem;
+
+        @media (max-width:767px) {
+            margin-bottom: 20px;
+        }
     }
 
     .form {

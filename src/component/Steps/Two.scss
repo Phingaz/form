@@ -5,6 +5,10 @@
     height: 100%;
     padding-right: 30px;
 
+    @media (max-width: 767px) {
+        padding: 30px;
+    }
+
     h1 {
         font-weight: 700;
         margin-top: 10px;
@@ -16,6 +20,10 @@
         color: var(--cool-gray);
         margin-bottom: 50px;
         font-size: 0.85rem;
+
+        @media (max-width: 767px) {
+            margin-bottom: 30px;
+        }
     }
 
     .form {
@@ -34,9 +42,19 @@
                 gap: 1rem;
                 margin-bottom: 50px;
 
+                @media (max-width: 767px) {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 20px;
+                }
+
                 .card {
-                    min-height: 180px;
+                    height: 180px;
                     transition: all 0.3s ease;
+
+                    @media (max-width: 767px) {
+                        height: 80px;
+                    }
 
                     &.active {
                         background-color: var(--pinkish);
@@ -55,6 +73,12 @@
                         transition: all 0.3s ease;
                         box-shadow: 0 0 5px 1px rgba(0, 0, 10, 0.209);
 
+                        @media (max-width: 767px) {
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+                        }
+
                         &:hover {
                             box-shadow: 0 0 5px 1px var(--marine-blue);
                         }
@@ -65,6 +89,12 @@
                             color: var(--white);
                             border-radius: 50%;
                             background-color: rgba(255, 166, 0, 0.763);
+
+                            @media (max-width: 767px) {
+                                padding: 8px;
+                                font-size: 2.6rem;
+                                margin-right: 20px;
+                            }
 
                             &.two {
                                 background-color: var(--strawberry-red);
@@ -83,6 +113,10 @@
                             h2 {
                                 font-size: 1.3rem;
                                 color: var(--marine-blue);
+
+                                @media (max-width: 767px) {
+                                    font-size: 1.1rem;
+                                }
                             }
 
                             p {
@@ -96,7 +130,7 @@
                         }
                     }
 
-                    input[type='radio'] {
+                    input[type="radio"] {
                         width: 100%;
                         height: 100%;
                         -webkit-appearance: none;
@@ -114,6 +148,10 @@
                 border-radius: var(--bd-radius);
                 background-color: var(--pinkish);
 
+                @media (max-width: 767px) {
+                    margin-bottom: 20px;
+                }
+
                 h2 {
                     color: var(--cool-gray);
                     font-size: 1.3rem;
@@ -122,7 +160,6 @@
                         color: var(--marine-blue);
                     }
                 }
-
 
                 /* The switch - the box around the slider */
                 .switch {
@@ -148,8 +185,8 @@
                     right: 0;
                     bottom: 0;
                     background-color: var(--marine-blue);
-                    -webkit-transition: .4s;
-                    transition: .4s;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
                 }
 
                 .slider:before {
@@ -160,8 +197,8 @@
                     left: 4px;
                     bottom: 4px;
                     background-color: white;
-                    -webkit-transition: .4s;
-                    transition: .4s;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
                 }
 
                 input:checked+.slider {
