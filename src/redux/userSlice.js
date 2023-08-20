@@ -4,6 +4,7 @@ const userSlice = createSlice({
   name: "userForm",
   initialState: {
     user: { name: "", email: "", phone: "" },
+    valid: false,
     plan: { isYearly: false, selectedPlan: "arcade" },
     addOns: { online: true, storage: true, profile: false },
     pricing: {
@@ -37,6 +38,9 @@ const userSlice = createSlice({
     userInfo: (state, action) => {
       state.user = action.payload;
     },
+    validUserInfo: (state, action) => {
+      state.valid = action.payload;
+    },
     userPlan: (state, action) => {
       state.plan.isYearly = action.payload.toggle;
       state.plan.selectedPlan = action.payload.checked;
@@ -49,5 +53,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { userInfo, userPlan, userAddons } = userSlice.actions;
+export const { userInfo, userPlan, userAddons, validUserInfo } =
+  userSlice.actions;
 export default userSlice.reducer;

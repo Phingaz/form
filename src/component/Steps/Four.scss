@@ -6,7 +6,7 @@
     padding-right: 30px;
 
     @media (max-width: 767px) {
-       padding: 30px;
+        padding: 30px;
     }
 
     h1 {
@@ -20,6 +20,10 @@
         color: var(--cool-gray);
         margin-bottom: 50px;
         font-size: 0.85rem;
+
+        @media (max-width: 767px) {
+            margin-bottom: 20px;
+        }
     }
 
     .form {

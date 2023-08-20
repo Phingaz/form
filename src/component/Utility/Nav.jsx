@@ -1,9 +1,17 @@
-import "./Nav.scss"
+import { useSelector } from "react-redux";
+import "./Nav.scss";
 import { NavLink } from "react-router-dom";
 
 export const Nav = () => {
+
+  const validUser = useSelector((state) => state.userForm.valid);
+
+  const handleClick = (e) => {
+    !validUser && e.preventDefault();
+  };
+
   return (
-    <div className='nav'>
+    <div className="nav">
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>
@@ -18,6 +26,7 @@ export const Nav = () => {
       </NavLink>
       <NavLink
         to="/plan"
+        onClick={handleClick}
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : "nav_item"
         }
@@ -30,6 +39,7 @@ export const Nav = () => {
       </NavLink>
       <NavLink
         to="/addons"
+        onClick={handleClick}
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : "nav_item"
         }
@@ -42,6 +52,7 @@ export const Nav = () => {
       </NavLink>
       <NavLink
         to="/summary"
+        onClick={handleClick}
         className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "active" : "nav_item"
         }
@@ -54,4 +65,4 @@ export const Nav = () => {
       </NavLink>
     </div>
   );
-}
+};

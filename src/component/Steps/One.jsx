@@ -3,7 +3,7 @@ import "./One.scss";
 import { Wrapper } from "../Utility/Wrapper";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userInfo } from "../../redux/userSlice";
+import { userInfo, validUserInfo } from "../../redux/userSlice";
 
 export const One = () => {
   const required = false;
@@ -57,6 +57,7 @@ export const One = () => {
       return;
     }
     dispatch(userInfo(one));
+    dispatch(validUserInfo(true))
     navigate("/plan");
   };
 
